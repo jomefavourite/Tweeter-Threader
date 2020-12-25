@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GloabalContext";
 
-const Thread = ({ tweets, delTweet }) => {
+const Thread = () => {
+  const { tweets, delTweet } = useContext(GlobalContext);
+
   let handleClick = (id) => {
     delTweet(id);
   };

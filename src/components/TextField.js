@@ -1,18 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GloabalContext";
+import { TextFieldContext } from "../context/TextFieldContext";
 
-const TextField = ({ addThread, tweets }) => {
-  const [textField, setTextField] = useState("");
+const TextField = () => {
+  // const [textField, setTextField] = useState("");
 
-  const [input, setInput] = useState({
-    content: ""
-  });
+  // const [input, setInput] = useState({
+  //   content: ""
+  // });
+
+  // let handleSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   // if (textField.length === 0) return;
+
+  //   console.log(input);
+
+  //   setTextField("");
+  //   addThread(input);
+  // };
+
+  const { tweets, addThread } = useContext(GlobalContext);
+  const { textField, setTextField, input, setInput } = useContext(
+    TextFieldContext
+  );
 
   let handleSubmit = (e) => {
     e.preventDefault();
-
-    // if (textField.length === 0) return;
-
-    console.log(input);
 
     setTextField("");
     addThread(input);

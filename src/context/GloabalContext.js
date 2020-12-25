@@ -1,9 +1,14 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 export const GlobalContext = createContext();
 
 const GlobalContextProvider = ({ children }) => {
-  const [tweets, setTweets] = useState([]);
+  let lS = () => {
+    const localData = localStorage.getItem("tweets");
+    return localData ? JSON.parse(localData) : [];
+  };
+
+  const [tweets, setTweets] = useState(lS());
 
   let addThread = (tweet) => {
     setTweets([...tweets, tweet]);
@@ -16,8 +21,13 @@ const GlobalContextProvider = ({ children }) => {
 
     setTweets(filterTweet);
   };
+
+  useEffect(() => {
+    localStorage.setItem("tweets", JSON.stringify(tweets));
+  }, [tweets]);
+
   return (
-    <GlobalContext.Provider value={{ ...tweets }}>
+    <GlobalContext.Provider value={{ tweets, addThread, delTweet }}>
       {children}
     </GlobalContext.Provider>
   );
