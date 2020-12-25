@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  /* padding: 0; */
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(rgba(255, 0, 0, 0.795), rgba(128, 0, 128, 0.815));
+  /* background-repeat: no-repeat; */
+  height: 100vh;
+}
+
+.App {
+  width: 80%;
+  font-family: sans-serif;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background: rgba(212, 205, 205, 0.534);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.text-field {
+  width: 100%;
+  max-width: 500px;
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+.button {
+  display: block;
+  width: 100%;
+}
+
+.display {
+  color: #000;
+  width: 100%;
+  margin: 2rem auto;
+  max-width: 740px;
+}
+
+.tweet {
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.tweet + .tweet {
+  margin-top: 1rem;
+}
+
+label {
+  background: rgb(0, 99, 53);
+  padding: 10px;
+  color: #fff;
+}
+
+.text {
+  word-wrap: break-word;
+}
+
+.cross:hover {
+  color: red;
+}
